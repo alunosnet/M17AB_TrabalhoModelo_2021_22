@@ -1,0 +1,58 @@
+﻿using M17AB_TrabalhoModelo_2021_22.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace M17AB_TrabalhoModelo_2021_22.User.Emprestimos
+{
+    public partial class Emprestimos : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            //validar sessão
+            if (Session["perfil"] == null ||
+                Session["perfil"].ToString() != "1" ||
+                Session["ip"].ToString() != Request.UserHostAddress ||
+                Session["useragent"].ToString() != Request.UserAgent)
+            {
+                Session.Clear();
+                Response.Redirect("~/index.aspx");
+            }
+
+            ConfigurarGrid();
+            AtualizarGrid();
+        }
+
+        private void ConfigurarGrid()
+        {
+            GvLivros.RowCommand += GvLivros_RowCommand;
+        }
+
+        private void GvLivros_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            //reservar um livro
+        }
+
+        private void AtualizarGrid()
+        {
+            GvLivros.Columns.Clear();
+            GvLivros.DataSource = null;
+            GvLivros.DataBind();
+
+            Livro livro = new Livro();
+            GvLivros.DataSource = livro.listaTodosLivrosDisponiveis();
+
+            //botão reservar
+            ButtonField bt = new ButtonField();
+            bt.HeaderText = "Reservar";
+            bt.Text = "Reservar";
+            bt.ButtonType = ButtonType.Button;
+            bt.CommandName = "reservar";
+            GvLivros.Columns.Add(bt);
+            GvLivros.DataBind();
+        }
+    }
+}
