@@ -132,6 +132,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Emprestimos
                 DataTable dadosLeitor = new Utilizador().devolveDadosUtilizador(idleitor);
                 string emailLeitor = dadosLeitor.Rows[0]["email"].ToString();
                 Helper.enviarMail(email,password,emailLeitor,assunto,texto);
+                AtualizarGrid();
             }
         }
 
