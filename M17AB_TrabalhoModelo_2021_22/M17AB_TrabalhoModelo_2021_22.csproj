@@ -77,6 +77,7 @@
     <Content Include="Admin\Utilizadores\HistoricoUtilizador.aspx" />
     <Content Include="Admin\Utilizadores\RemoverUtilizador.aspx" />
     <Content Include="Admin\Utilizadores\utilizadores.aspx" />
+    <Content Include="Erros.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Logbook.txt" />
     <Content Include="logout.aspx" />
@@ -97,6 +98,7 @@
     <Content Include="Public\js\jquery.min.js" />
     <Content Include="Public\js\popper.min.js" />
     <Content Include="recuperarpassword.aspx" />
+    <Content Include="registo.aspx" />
     <Content Include="User\Emprestimos\Emprestimos.aspx" />
     <Content Include="User\Emprestimos\historico.aspx" />
     <Content Include="User\User.aspx" />
@@ -177,6 +179,13 @@
     <Compile Include="Classes\Helper.cs" />
     <Compile Include="Classes\ReCaptcha.cs" />
     <Compile Include="Classes\UserLogin.cs" />
+    <Compile Include="Erros.aspx.cs">
+      <DependentUpon>Erros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Erros.aspx.designer.cs">
+      <DependentUpon>Erros.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -208,6 +217,13 @@
     </Compile>
     <Compile Include="recuperarpassword.aspx.designer.cs">
       <DependentUpon>recuperarpassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="registo.aspx.cs">
+      <DependentUpon>registo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registo.aspx.designer.cs">
+      <DependentUpon>registo.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Emprestimos\Emprestimos.aspx.cs">
       <DependentUpon>Emprestimos.aspx</DependentUpon>
