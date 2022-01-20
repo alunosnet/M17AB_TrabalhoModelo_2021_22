@@ -34,6 +34,15 @@ namespace M17AB_TrabalhoModelo_2021_22.User.Emprestimos
         private void GvLivros_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             //reservar um livro
+            int linha = int.Parse(e.CommandArgument as string);
+            int idlivro = int.Parse(GvLivros.Rows[linha].Cells[1].Text);
+            int idutilizador = int.Parse(Session["id"].ToString());
+            if (e.CommandName == "reservar")
+            {
+                Emprestimo emp = new Emprestimo();
+                emp.adicionarReserva(idlivro, idutilizador, DateTime.Now.AddDays(7));
+                AtualizarGrid();
+            }
         }
 
         private void AtualizarGrid()

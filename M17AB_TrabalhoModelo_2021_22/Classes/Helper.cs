@@ -11,7 +11,7 @@ public class Helper
         //objetos mail
         System.Net.Mail.MailMessage mensagem = new System.Net.Mail.MailMessage();
         System.Net.NetworkCredential credenciais = new System.Net.NetworkCredential(nomeDe, passwordDe);
-        System.Net.Mail.MailAddress dequem = new System.Net.Mail.MailAddress(nomeDe);
+        System.Net.Mail.MailAddress dequem = new System.Net.Mail.MailAddress("de@exemplo.com");// nomeDe);
         System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient();
 
         //mensagem
@@ -21,7 +21,7 @@ public class Helper
         mensagem.Body = texto;
         mensagem.IsBodyHtml = true;
         //servidor
-        smtp.Host = "smtp.gmail.com";
+        smtp.Host = "smtp.mailtrap.io";// "smtp.gmail.com";
         smtp.Port = 587;
         smtp.EnableSsl = true;
         smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
