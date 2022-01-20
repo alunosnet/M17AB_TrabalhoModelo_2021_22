@@ -1,4 +1,5 @@
-﻿using M17AB_TrabalhoModelo_2021_22.Models;
+﻿using M17AB_TrabalhoModelo_2021_22.Classes;
+using M17AB_TrabalhoModelo_2021_22.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,17 @@ namespace M17AB_TrabalhoModelo_2021_22.User.Emprestimos
         protected void Page_Load(object sender, EventArgs e)
         {
             //validar sessão
-            if (Session["perfil"] == null ||
+            /*if (Session["perfil"] == null ||
                 Session["perfil"].ToString() != "1" ||
                 Session["ip"].ToString() != Request.UserHostAddress ||
                 Session["useragent"].ToString() != Request.UserAgent)
             {
                 Session.Clear();
                 Response.Redirect("~/index.aspx");
-            }
+            }*/
+            if(UserLogin.ValidarSessao(Session,Request,"1")==false)
+                Response.Redirect("~/index.aspx");
+
 
             ConfigurarGrid();
             AtualizarGrid();

@@ -4,12 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Modulo 17AB</h1>
     <!--Login-->
-    <div>
-    Email:<asp:TextBox placeholder="Email" runat="server" ID="tbEmail" TextMode="Email" />
-    Password:<asp:TextBox runat="server" ID="tbPassword" TextMode="Password" />
+    <div runat="server" id="divLogin" class="float-right col-sm-3 table-bordered divLogin" style="z-index:1">
+    Email:<asp:TextBox CssClass="form-control" placeholder="Email" runat="server" ID="tbEmail" TextMode="Email" />
+    Password:<asp:TextBox CssClass="form-control" runat="server" ID="tbPassword" TextMode="Password" />
     <asp:Label ID="lbErro" runat="server" />
-    <asp:Button OnClick="btLogin_Click" runat="server" Text="Login" ID="btLogin" />
-    <asp:Button OnClick="btRecuperar_Click" runat="server" Text="Recuperar" ID="btRecuperar" />
+    <asp:Button CssClass="btn btn-info" OnClick="btLogin_Click" runat="server" Text="Login" ID="btLogin" />
+    <asp:Button CssClass="btn btn-danger" OnClick="btRecuperar_Click" runat="server" Text="Recuperar" ID="btRecuperar" />
     </div>
     <!--Pesquisa-->
     

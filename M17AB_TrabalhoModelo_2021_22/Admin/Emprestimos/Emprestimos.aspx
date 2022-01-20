@@ -3,12 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Empréstimos</h2>
-    <asp:GridView id="GvEmprestimos" runat="server"></asp:GridView>
+    <asp:GridView CssClass="table" id="GvEmprestimos" runat="server"></asp:GridView>
     <h2>Registar empréstimo</h2>
-    Livro:<asp:DropDownList runat="server" ID="DDLivro"></asp:DropDownList>
-    <br />Leitor:<asp:DropDownList runat="server" ID="DDLeitor"></asp:DropDownList>
-    <br />Data devolução:<asp:TextBox runat="server" ID="tbData" TextMode="Date"></asp:TextBox>
+    Livro:<asp:DropDownList CssClass="form-control" runat="server" ID="DDLivro"></asp:DropDownList>
+    <br />Leitor:<asp:DropDownList CssClass="form-control" runat="server" ID="DDLeitor"></asp:DropDownList>
+    <br />Data devolução:<asp:TextBox CssClass="form-control" runat="server" ID="tbData" TextMode="Date"></asp:TextBox>
     <br /><asp:Label runat="server" ID="lbErro"></asp:Label>
     <br />
-    <asp:Button runat="server" id="btAdicionar" OnClick="btAdicionar_Click" Text="Registar" />
+    <asp:Button CssClass="btn btn-lg btn-danger" runat="server" id="btAdicionar" OnClick="btAdicionar_Click" Text="Registar" />
 </asp:Content>

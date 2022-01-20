@@ -109,6 +109,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Utilizadores
             //RemoverUtilizador.aspx?id={0}
             hlRemover.DataNavigateUrlFormatString = "RemoverUtilizador.aspx?id={0}";
             hlRemover.DataNavigateUrlFields = new string[] { "id" };
+            hlRemover.ControlStyle.CssClass = "btn btn-danger";
             gvUtilizadores.Columns.Add(hlRemover);
             //editar
             HyperLinkField hlEditar = new HyperLinkField();
@@ -117,6 +118,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Utilizadores
             hlEditar.Text = "Editar";
             hlEditar.DataNavigateUrlFormatString = "EditarUtilizador.aspx?id={0}";
             hlEditar.DataNavigateUrlFields = new string[] { "id" };
+            hlEditar.ControlStyle.CssClass = "btn btn-info";
             gvUtilizadores.Columns.Add(hlEditar);
             //bloquear
             HyperLinkField hlBloquear = new HyperLinkField();
@@ -125,6 +127,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Utilizadores
             hlBloquear.Text = "Bloquear";
             hlBloquear.DataNavigateUrlFormatString = "BloquearUtilizador.aspx?id={0}";
             hlBloquear.DataNavigateUrlFields = new string[] { "id" };
+            hlBloquear.ControlStyle.CssClass = "btn btn-danger";
             gvUtilizadores.Columns.Add(hlBloquear);
             //histórico
             HyperLinkField hlHistorico = new HyperLinkField();
@@ -133,6 +136,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Utilizadores
             hlHistorico.Text = "Histórico";
             hlHistorico.DataNavigateUrlFormatString = "HistoricoUtilizador.aspx?id={0}";
             hlHistorico.DataNavigateUrlFields = new string[] { "id" };
+            hlHistorico.ControlStyle.CssClass = "btn btn-success";
             gvUtilizadores.Columns.Add(hlHistorico);
 
             //id

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 
 namespace M17AB_TrabalhoModelo_2021_22.Classes
 {
@@ -39,6 +40,20 @@ namespace M17AB_TrabalhoModelo_2021_22.Classes
             if (dados == null || dados.Rows.Count == 0)
                 return null;
             return dados;
+        }
+
+
+        public static bool ValidarSessao(HttpSessionState estadoSessao,HttpRequest pedido,string perfil)
+        {
+            if (estadoSessao["perfil"] == null ||
+                estadoSessao["perfil"].ToString() != perfil ||
+                estadoSessao["ip"].ToString() != pedido.UserHostAddress ||
+                estadoSessao["useragent"].ToString() != pedido.UserAgent)
+            {
+                estadoSessao.Clear();
+                return false;
+            }
+            return true;
         }
     }
 }
