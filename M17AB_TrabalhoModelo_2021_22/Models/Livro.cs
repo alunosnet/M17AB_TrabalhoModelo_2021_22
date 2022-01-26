@@ -191,5 +191,61 @@ namespace M17AB_TrabalhoModelo_2021_22.Models
                 WHERE nlivro={id}";
             return bd.devolveSQL(sql);
         }
+        public DataTable listaLivrosDisponiveis(int? ordena = null)
+        {
+            string sql = "SELECT * FROM Livros WHERE estado=1";
+            if (ordena != null && ordena == 1)
+            {
+                sql += " order by preco";
+            }
+            if (ordena != null && ordena == 2)
+            {
+                sql += " order by autor";
+            }
+            return bd.devolveSQL(sql);
+        }
+        internal DataTable listaLivrosDisponiveis(string pesquisa, int? ordena = null)
+        {
+            string sql = "SELECT * FROM Livros WHERE estado=1 and nome like @nome";
+            if (ordena != null && ordena == 1)
+            {
+                sql += " order by preco";
+            }
+            if (ordena != null && ordena == 2)
+            {
+                sql += " order by autor";
+            }
+
+            List<SqlParameter> parametros = new List<SqlParameter>()
+            {
+                new SqlParameter() {
+                    ParameterName ="@nome",
+                    SqlDbType =SqlDbType.VarChar,
+                    Value = "%"+pesquisa+"%"},
+            };
+            return bd.devolveSQL(sql, parametros);
+        }
+        internal DataTable listaLivrosDoAutor(string pesquisa)
+        {
+            string sql = "SELECT *,1 as prioridade FROM Livros WHERE estado=1 and autor like @nome";
+            sql += " UNION SELECT *,2 as prioridade FROM Livros WHERE estado=1 and autor not like @nome order by prioridade";
+            List<SqlParameter> parametros = new List<SqlParameter>()
+            {
+                new SqlParameter() {
+                    ParameterName ="@nome",
+                    SqlDbType =SqlDbType.VarChar,
+                    Value = "%"+pesquisa+"%"},
+            };
+            return bd.devolveSQL(sql, parametros);
+        }
+        public DataTable devolveDadosLivro(int nlivro)
+        {
+            string sql = "SELECT * FROM Livros WHERE nlivro=@nlivro";
+            List<SqlParameter> parametros = new List<SqlParameter>()
+            {
+                new SqlParameter() {ParameterName="@nlivro",SqlDbType=SqlDbType.Int,Value=nlivro }
+            };
+            return bd.devolveSQL(sql, parametros);
+        }
     }
 }

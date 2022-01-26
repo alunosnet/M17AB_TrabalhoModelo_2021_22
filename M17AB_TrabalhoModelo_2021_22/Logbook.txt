@@ -69,10 +69,10 @@ set @nr_registos=10;
 while @i<=@nr_registos
 begin
 	select @i;
-	insert into utilizadores(email,nome,morada,nif,password,estado,perfil)
+	insert into utilizadores(email,nome,morada,nif,password,sal,estado,perfil)
 	values (concat('email',@i),
 			concat('util',@i),
-			'','',HASHBYTES('SHA2_512','12345'),1,1
+			'','',HASHBYTES('SHA2_512','123450'),0,1,1
 			);
 	set @i=@i+1;
 end

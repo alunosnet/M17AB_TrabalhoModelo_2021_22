@@ -64,6 +64,7 @@ namespace M17AB_TrabalhoModelo_2021_22.User.Emprestimos
             bt.Text = "Reservar";
             bt.ButtonType = ButtonType.Button;
             bt.CommandName = "reservar";
+            bt.ControlStyle.CssClass = "btn btn-danger";
             GvLivros.Columns.Add(bt);
             GvLivros.DataBind();
         }

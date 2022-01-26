@@ -72,6 +72,7 @@
     <Content Include="Admin\Livros\EditarLivro.aspx" />
     <Content Include="Admin\Livros\Livros.aspx" />
     <Content Include="Admin\Livros\RemoverLivro.aspx" />
+    <Content Include="Admin\Servicos.asmx" />
     <Content Include="Admin\Utilizadores\BloquearUtilizador.aspx" />
     <Content Include="Admin\Utilizadores\EditarUtilizador.aspx" />
     <Content Include="Admin\Utilizadores\HistoricoUtilizador.aspx" />
@@ -81,6 +82,7 @@
     <Content Include="App_Data\bd_log.ldf">
       <DependentUpon>bd.mdf</DependentUpon>
     </Content>
+    <Content Include="DetalhesLivro.aspx" />
     <Content Include="Erros.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Logbook.txt" />
@@ -144,6 +146,10 @@
     <Compile Include="Admin\Livros\RemoverLivro.aspx.designer.cs">
       <DependentUpon>RemoverLivro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Servicos.asmx.cs">
+      <DependentUpon>Servicos.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Admin\Utilizadores\BloquearUtilizador.aspx.cs">
       <DependentUpon>BloquearUtilizador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +189,13 @@
     <Compile Include="Classes\Helper.cs" />
     <Compile Include="Classes\ReCaptcha.cs" />
     <Compile Include="Classes\UserLogin.cs" />
+    <Compile Include="DetalhesLivro.aspx.cs">
+      <DependentUpon>DetalhesLivro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalhesLivro.aspx.designer.cs">
+      <DependentUpon>DetalhesLivro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Erros.aspx.cs">
       <DependentUpon>Erros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
