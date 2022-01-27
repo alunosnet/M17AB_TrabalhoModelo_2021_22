@@ -15,6 +15,15 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Emprestimos
     {
 
         /// <summary>
+        /// cbEmprestimos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbEmprestimos;
+
+        /// <summary>
         /// GvEmprestimos control.
         /// </summary>
         /// <remarks>

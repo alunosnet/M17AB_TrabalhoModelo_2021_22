@@ -1,4 +1,5 @@
-﻿using M17AB_TrabalhoModelo_2021_22.Models;
+﻿using M17AB_TrabalhoModelo_2021_22.Classes;
+using M17AB_TrabalhoModelo_2021_22.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -15,25 +16,22 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Emprestimos
         protected void Page_Load(object sender, EventArgs e)
         {
             //validar sessão
-            if(Session["perfil"]==null || 
-                Session["perfil"].ToString()!="0" ||
-                Session["ip"].ToString() != Request.UserHostAddress ||
-                Session["useragent"].ToString()!= Request.UserAgent)
-            {
-                Session.Clear();
+            if (UserLogin.ValidarSessao(Session, Request, "0") == false)
                 Response.Redirect("~/index.aspx");
-            }
 
             ConfigurarGrid();
 
             if (IsPostBack) return;
-
+            cbEmprestimos.Checked = true;
             AtualizarGrid();
             AtualizarDDLivros();
             AtualizarDDLeitores();
 
         }
-
+        protected void cbEmprestimos_CheckedChanged(object sender, EventArgs e)
+        {
+            AtualizarGrid();
+        }
         private void AtualizarDDLeitores()
         {
             Utilizador utilizador = new Utilizador();
@@ -68,8 +66,13 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Emprestimos
             GvEmprestimos.Columns.Clear();
             GvEmprestimos.DataSource = null;
             GvEmprestimos.DataBind();
-//            GvEmprestimos.DataSource = emp.listaTodosEmprestimosComNomes();
+            DataTable dados;
+            if (cbEmprestimos.Checked)
+                dados = emp.listaTodosEmprestimosPorConcluirComNomes();
+            else
+                dados = emp.listaTodosEmprestimosComNomes();
 
+            if (dados == null || dados.Rows.Count == 0) return;
             //botão do comando
             //receber
             ButtonField bfReceber = new ButtonField();
@@ -88,7 +91,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Emprestimos
             bfEmail.ControlStyle.CssClass = "btn btn-info";
             GvEmprestimos.Columns.Add(bfEmail);
 
-            GvEmprestimos.DataSource = emp.listaTodosEmprestimosComNomes();
+            GvEmprestimos.DataSource = dados;
             GvEmprestimos.AutoGenerateColumns = true;
             GvEmprestimos.DataBind();
 
