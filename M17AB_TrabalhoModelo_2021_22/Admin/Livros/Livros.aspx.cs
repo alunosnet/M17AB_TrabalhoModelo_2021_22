@@ -170,7 +170,7 @@ namespace M17AB_TrabalhoModelo_2021_22.Admin.Livros
                 decimal preco = decimal.Parse(tbPreco.Text);
                 if(preco<0 || preco >= 100)
                 {
-                    throw new Exception("O preço deve ser suprrior ou igual a zero.");
+                    throw new Exception("O preço deve ser superior ou igual a zero.");
                 }
                 string tipo = tbTipo.Text;
                 int estado = 1;
